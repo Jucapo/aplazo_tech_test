@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -35,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
+        MatButtonModule,
         HttpClientModule
     ],
     providers: [],

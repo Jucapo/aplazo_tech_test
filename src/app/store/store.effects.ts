@@ -15,7 +15,7 @@ export class AppEffects {
             ofType(AppActions.getCharacters),
             mergeMap(() =>
                 this.rickandmortyService.getCharacters().pipe(
-                    map((characters) => AppActions.getCharactersSuccess({ characters })),
+                    map((result) => AppActions.getCharactersSuccess({ result })),
                     catchError((error) => of(AppActions.getCharactersFailure({ error })))
                 )
             )

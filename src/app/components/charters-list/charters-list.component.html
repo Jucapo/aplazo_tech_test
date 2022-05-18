@@ -1,1 +1,18 @@
-<p>charters-list works!</p>
+<div>
+    <div class="pagination-container">
+        <button mat-icon-button (click)="previousPage()" [disabled]="page === 1">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span class="page-container">{{ page }}</span>
+        <button mat-icon-button (click)="nextPage()">
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </div>
+
+    <div class="characters-list-container">
+        <div class="card-character" *ngFor="let item of characters$ | async">
+            <img [src]="item.image" alt="image-character" class="image-character" />
+            <span class="name">{{ item.name }}</span>
+        </div>
+    </div>
+</div>

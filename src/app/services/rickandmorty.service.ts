@@ -10,6 +10,6 @@ export class RickandmortyService {
 
     // Get Characters
     getCharacters() {
-        return this.http.get('https://rickandmortyapi.com/api/character/').pipe(map((characters: any) => characters.results));
+        return this.http.get('https://rickandmortyapi.com/api/character').pipe(map((characters: any) => characters));
     }
 }
