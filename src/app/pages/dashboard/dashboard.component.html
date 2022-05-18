@@ -1,0 +1,20 @@
+<div>
+    <mat-toolbar color="primary" class="nav-container col-12">
+        <div class="nav-options-conatainer col-">
+            <span class="nav-option" [class.active]="optionActive === 1" (click)="optionActive = 1">Charters</span>
+            <span class="nav-option" [class.active]="optionActive === 2" (click)="optionActive = 2">Locations</span>
+            <span class="nav-option" [class.active]="optionActive === 3" (click)="optionActive = 3"> Episodes</span>
+        </div>
+        <div class="search-container">
+            <mat-form-field>
+                <mat-icon class="search-icon" matPrefix>search</mat-icon>
+                <input matInput type="search" placeholder="Search" class="search-input" />
+            </mat-form-field>
+        </div>
+    </mat-toolbar>
+    <div class="list-container">
+        <app-charters-list *ngIf="optionActive === 1"></app-charters-list>
+        <app-locations-list *ngIf="optionActive === 2"></app-locations-list>
+        <app-episodes-list *ngIf="optionActive === 3"></app-episodes-list>
+    </div>
+</div>

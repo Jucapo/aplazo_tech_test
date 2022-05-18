@@ -1,0 +1,29 @@
+.nav-option {
+    margin: 1rem;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.active {
+
+    border-radius: 10px;
+    border: solid 1px white;
+    padding: 0.5rem 1rem;
+}
+
+.search-container {
+    font-size: 16px;
+    margin-top: 1rem;
+    input::placeholder {
+        color: white;
+    }
+    .search-icon {
+        margin-right: 1rem;
+    }
+}
