@@ -35,6 +35,19 @@ export class AppEffects {
         )
     );
 
+    // Get Multiple Characters
+    getMultipleCharacters$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getMultipleCharacters),
+            mergeMap((action) =>
+                this.rickandmortyService.getMultipleCharacters(action.ids).pipe(
+                    map((result) => AppActions.getMultipleCharactersSuccess({ result })),
+                    catchError((error) => of(AppActions.getMultipleCharactersFailure({ error })))
+                )
+            )
+        )
+    );
+
     // Get Locations
     getLocations$ = createEffect(() =>
         this.actions$.pipe(

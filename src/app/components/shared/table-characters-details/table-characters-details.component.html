@@ -1,0 +1,25 @@
+<div class="table-characters-container">
+    <h1>Characters</h1>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Especie</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of characters$ | async">
+                <td>
+                    <img [src]="item?.image" alt="image-character" class="image-character" />
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.status }}</td>
+                <td>{{ item.species }}</td>
+                <td>{{ item.gender }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

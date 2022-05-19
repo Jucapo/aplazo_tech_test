@@ -14,12 +14,14 @@ export interface LocationsState {
     info: any;
     locations: any[];
     loading: boolean;
+    characters: any[];
     error: string;
     pageSelected: number;
 }
 export interface EpisodesState {
     info: any;
     episodes: any[];
+    characters: any[];
     loading: boolean;
     error: string;
     pageSelected: number;
@@ -43,6 +45,7 @@ export const initialState = {
     locationsState: {
         info: null,
         locations: [],
+        characters: [],
         loading: false,
         error: null,
         pageSelected: 1,
@@ -50,6 +53,7 @@ export const initialState = {
     episodesState: {
         info: null,
         episodes: [],
+        characters: [],
         loading: false,
         error: null,
         pageSelected: 1,
@@ -107,6 +111,33 @@ export const _appReducer = createReducer(
     })),
 
     on(AppActions.getCharacterFailure, (state, { error }) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            error,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getMultipleCharacters, (state, action) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            loading: true,
+            error: null,
+        },
+    })),
+
+    on(AppActions.getMultipleCharactersSuccess, (state, { result }) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            characters: result,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getMultipleCharactersFailure, (state, { error }) => ({
         ...state,
         charactersState: {
             ...state.charactersState,

@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of episodes$ | async">
+                <tr *ngFor="let item of episodes$ | async" (click)="showCharacters(item.characters)" class="item-table">
                     <td>{{ item.name }}</td>
                     <td>{{ item.air_date }}</td>
                     <td>{{ item.episode }}</td>

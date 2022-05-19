@@ -10,6 +10,11 @@ export const getCharacter = createAction('[Characters] Get Character', props<{ i
 export const getCharacterSuccess = createAction('[Characters] Get Character Success', props<{ result: any }>());
 export const getCharacterFailure = createAction('[Characters] Get Character Failure', props<{ error: any }>());
 
+// get multiple characters
+export const getMultipleCharacters = createAction('[Characters] Get Multiple Characters', props<{ ids: string }>());
+export const getMultipleCharactersSuccess = createAction('[Characters] Get Multiple Characters Success', props<{ result: any }>());
+export const getMultipleCharactersFailure = createAction('[Characters] Get Multiple Characters Failure', props<{ error: any }>());
+
 // get locations
 export const getLocations = createAction('[Locations] Get Locations', props<{ page: number }>());
 export const getLocationsSuccess = createAction('[Locations] Get Locations Success', props<{ result: any }>());

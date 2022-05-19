@@ -10,9 +10,14 @@
     }
 }
 
-
 .episodes-table-container {
     padding: 2rem;
     max-width: 1024px;
     margin: auto;
 }
+
+.item-table:hover {
+    background-color: #dbfad0;
+    cursor: pointer;
+}
+

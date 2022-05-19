@@ -26,6 +26,7 @@ import { appReducer } from './store/store.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/store.effects';
 import { CharacterDetailComponent } from './components/charters-list/character-detail/character-detail.component';
+import { TableCharactersDetailsComponent } from './components/shared/table-characters-details/table-characters-details.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { CharacterDetailComponent } from './components/charters-list/character-d
         EpisodesListComponent,
         DashboardComponent,
         CharacterDetailComponent,
+        TableCharactersDetailsComponent,
     ],
     imports: [
         StoreModule.forRoot({ store: appReducer }),
