@@ -13,10 +13,36 @@ export class AppEffects {
     getCharacters$ = createEffect(() =>
         this.actions$.pipe(
             ofType(AppActions.getCharacters),
-            mergeMap(() =>
-                this.rickandmortyService.getCharacters().pipe(
+            mergeMap((action) =>
+                this.rickandmortyService.getCharacters(action.page).pipe(
                     map((result) => AppActions.getCharactersSuccess({ result })),
                     catchError((error) => of(AppActions.getCharactersFailure({ error })))
+                )
+            )
+        )
+    );
+
+    // Get Locations
+    getLocations$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getLocations),
+            mergeMap((action) =>
+                this.rickandmortyService.getLocations(action.page).pipe(
+                    map((result) => AppActions.getLocationsSuccess({ result })),
+                    catchError((error) => of(AppActions.getLocationsFailure({ error })))
+                )
+            )
+        )
+    );
+
+    // Get Episodes
+    getEpisodes$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getEpisodes),
+            mergeMap((action) =>
+                this.rickandmortyService.getEpisodes(action.page).pipe(
+                    map((result) => AppActions.getEpisodesSuccess({ result })),
+                    catchError((error) => of(AppActions.getEpisodesFailure({ error })))
                 )
             )
         )

@@ -9,7 +9,17 @@ export class RickandmortyService {
     constructor(private http: HttpClient) {}
 
     // Get Characters
-    getCharacters() {
-        return this.http.get('https://rickandmortyapi.com/api/character').pipe(map((characters: any) => characters));
+    getCharacters(page?: number) {
+        return this.http.get(`https://rickandmortyapi.com/api/character/?page=${page}`).pipe(map((characters: any) => characters));
+    }
+
+    // Get Locations
+    getLocations(page?: number) {
+        return this.http.get(`https://rickandmortyapi.com/api/location/?page=${page}`).pipe(map((locations: any) => locations));
+    }
+
+    // Get Episodes
+    getEpisodes(page?: number) {
+        return this.http.get(`https://rickandmortyapi.com/api/episode/?page=${page}`).pipe(map((episodes: any) => episodes));
     }
 }

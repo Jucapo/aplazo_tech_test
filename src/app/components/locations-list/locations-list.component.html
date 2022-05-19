@@ -1,1 +1,30 @@
-<p>locations-list works!</p>
+<div>
+    <div class="pagination-container">
+        <button mat-icon-button (click)="previousPage()" [disabled]="page === 1">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span class="page-container">{{ page }}</span>
+        <button mat-icon-button (click)="nextPage()">
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
+    </div>
+
+    <div class="location-table-container ">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Dimension</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of locations$ | async">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.dimension }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

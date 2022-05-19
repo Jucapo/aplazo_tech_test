@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { State } from 'src/app/store/store.reducers';
 import * as AppActions from '../../store/store.actions';
 
 @Component({
@@ -17,14 +16,15 @@ export class ChartersListComponent implements OnInit {
 
     ngOnInit(): void {
         this.store.dispatch(AppActions.getCharacters({ page: this.page }));
-
-        this.characters$.subscribe((characters: any[]) => {
-            console.log(characters);
-        });
-
-        // select the characters from the store
     }
-    previousPage() {}
 
-    nextPage() {}
+    previousPage() {
+        this.page--;
+        this.store.dispatch(AppActions.getCharacters({ page: this.page }));
+    }
+
+    nextPage() {
+        this.page++;
+        this.store.dispatch(AppActions.getCharacters({ page: this.page }));
+    }
 }
