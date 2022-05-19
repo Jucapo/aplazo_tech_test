@@ -146,6 +146,34 @@ export const _appReducer = createReducer(
         },
     })),
 
+    on(AppActions.getFilterCharacters, (state, action) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            loading: true,
+            error: null,
+        },
+    })),
+
+    on(AppActions.getFilterCharactersSuccess, (state, { result }) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            info: result.info,
+            characters: result.results,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getFilterCharactersFailure, (state, { error }) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            error,
+            loading: false,
+        },
+    })),
+
     on(AppActions.getLocations, (state, action) => ({
         ...state,
         locationsState: {
@@ -175,6 +203,34 @@ export const _appReducer = createReducer(
         },
     })),
 
+    on(AppActions.getFilterLocations, (state, action) => ({
+        ...state,
+        locationsState: {
+            ...state.locationsState,
+            loading: true,
+            error: null,
+        },
+    })),
+
+    on(AppActions.getFilterLocationsSuccess, (state, { result }) => ({
+        ...state,
+        locationsState: {
+            ...state.locationsState,
+            info: result.info,
+            locations: result.results,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getFilterLocationsFailure, (state, { error }) => ({
+        ...state,
+        locationsState: {
+            ...state.locationsState,
+            error,
+            loading: false,
+        },
+    })),
+
     on(AppActions.getEpisodes, (state, action) => ({
         ...state,
         episodesState: {
@@ -196,6 +252,34 @@ export const _appReducer = createReducer(
     })),
 
     on(AppActions.getEpisodesFailure, (state, { error }) => ({
+        ...state,
+        episodesState: {
+            ...state.episodesState,
+            error,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getFilterEpisodes, (state, action) => ({
+        ...state,
+        episodesState: {
+            ...state.episodesState,
+            loading: true,
+            error: null,
+        },
+    })),
+
+    on(AppActions.getFilterEpisodesSuccess, (state, { result }) => ({
+        ...state,
+        episodesState: {
+            ...state.episodesState,
+            info: result.info,
+            episodes: result.results,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getFilterEpisodesFailure, (state, { error }) => ({
         ...state,
         episodesState: {
             ...state.episodesState,

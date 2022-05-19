@@ -48,6 +48,19 @@ export class AppEffects {
         )
     );
 
+    // Get Filter Characters
+    getFilterCharacters$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getFilterCharacters),
+            mergeMap((action) =>
+                this.rickandmortyService.getFilterCharacters(action.filter).pipe(
+                    map((result) => AppActions.getFilterCharactersSuccess({ result })),
+                    catchError((error) => of(AppActions.getFilterCharactersFailure({ error })))
+                )
+            )
+        )
+    );
+
     // Get Locations
     getLocations$ = createEffect(() =>
         this.actions$.pipe(
@@ -61,6 +74,19 @@ export class AppEffects {
         )
     );
 
+    // Get Filter Locations
+    getFilterLocations$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getFilterLocations),
+            mergeMap((action) =>
+                this.rickandmortyService.filterLocations(action.filter).pipe(
+                    map((result) => AppActions.getFilterLocationsSuccess({ result })),
+                    catchError((error) => of(AppActions.getFilterLocationsFailure({ error })))
+                )
+            )
+        )
+    );
+
     // Get Episodes
     getEpisodes$ = createEffect(() =>
         this.actions$.pipe(
@@ -69,6 +95,19 @@ export class AppEffects {
                 this.rickandmortyService.getEpisodes(action.page).pipe(
                     map((result) => AppActions.getEpisodesSuccess({ result })),
                     catchError((error) => of(AppActions.getEpisodesFailure({ error })))
+                )
+            )
+        )
+    );
+
+    // Get Filter Episodes
+    getFilterEpisodes$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getFilterEpisodes),
+            mergeMap((action) =>
+                this.rickandmortyService.filterEpisodes(action.filter).pipe(
+                    map((result) => AppActions.getFilterEpisodesSuccess({ result })),
+                    catchError((error) => of(AppActions.getFilterEpisodesFailure({ error })))
                 )
             )
         )

@@ -27,6 +27,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/store.effects';
 import { CharacterDetailComponent } from './components/charters-list/character-detail/character-detail.component';
 import { TableCharactersDetailsComponent } from './components/shared/table-characters-details/table-characters-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import { TableCharactersDetailsComponent } from './components/shared/table-chara
         EffectsModule.forRoot([AppEffects]),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
         BrowserModule,
+        FormsModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
