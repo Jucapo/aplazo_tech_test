@@ -10,6 +10,7 @@ import * as AppActions from '../../store/store.actions';
 })
 export class LocationsListComponent implements OnInit {
     locations$: Observable<any> = this.store.select((state: any) => state.store.locationsState.locations);
+    maxPage$: Observable<number> = this.store.select((state: any) => state.store.locationsState.info?.pages);
     page = 1;
 
     constructor(private store: Store<{ locations: any[] }>) {}

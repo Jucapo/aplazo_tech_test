@@ -4,6 +4,7 @@ import * as AppActions from './store.actions';
 export interface CharactersState {
     info: any;
     characters: any[];
+    characterSelected: any;
     loading: boolean;
     error: string;
     pageSelected: number;
@@ -34,6 +35,7 @@ export const initialState = {
     charactersState: {
         info: null,
         characters: [],
+        characterSelected: null,
         loading: false,
         error: null,
         pageSelected: 1,
@@ -78,6 +80,33 @@ export const _appReducer = createReducer(
     })),
 
     on(AppActions.getCharactersFailure, (state, { error }) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            error,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getCharacter, (state, action) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            loading: true,
+            error: null,
+        },
+    })),
+
+    on(AppActions.getCharacterSuccess, (state, { result }) => ({
+        ...state,
+        charactersState: {
+            ...state.charactersState,
+            characterSelected: result,
+            loading: false,
+        },
+    })),
+
+    on(AppActions.getCharacterFailure, (state, { error }) => ({
         ...state,
         charactersState: {
             ...state.charactersState,

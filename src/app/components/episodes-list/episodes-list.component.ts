@@ -8,7 +8,8 @@ import * as AppActions from '../../store/store.actions';
     styleUrls: ['./episodes-list.component.scss'],
 })
 export class EpisodesListComponent implements OnInit {
-    episodes$: Observable<any> = this.store.select((state: any) => state.store.episodesState.episodes);
+    episodes$: Observable<any> = this.store.select((state: any) => state.store.episodesState?.episodes);
+    maxPage$: Observable<number> = this.store.select((state: any) => state.store.episodesState.info?.pages);
     page = 1;
 
     constructor(private store: Store<{ episodes: any[] }>) {}

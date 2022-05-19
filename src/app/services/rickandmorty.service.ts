@@ -13,6 +13,11 @@ export class RickandmortyService {
         return this.http.get(`https://rickandmortyapi.com/api/character/?page=${page}`).pipe(map((characters: any) => characters));
     }
 
+    // Get Character Details
+    getCharacter(id: number) {
+        return this.http.get(`https://rickandmortyapi.com/api/character/${id}`).pipe(map((character: any) => character));
+    }
+
     // Get Locations
     getLocations(page?: number) {
         return this.http.get(`https://rickandmortyapi.com/api/location/?page=${page}`).pipe(map((locations: any) => locations));

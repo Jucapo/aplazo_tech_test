@@ -4,12 +4,12 @@
             <mat-icon>arrow_back</mat-icon>
         </button>
         <span class="page-container">{{ page }}</span>
-        <button mat-icon-button (click)="nextPage()">
+        <button mat-icon-button (click)="nextPage()" [disabled]="page === (maxPage$ | async)">
             <mat-icon>arrow_forward</mat-icon>
         </button>
     </div>
 
-    <div class="location-table-container ">
+    <div class="location-table-container">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>

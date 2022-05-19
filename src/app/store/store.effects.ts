@@ -22,6 +22,19 @@ export class AppEffects {
         )
     );
 
+    // Get Character Details
+    getCharacter$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(AppActions.getCharacter),
+            mergeMap((action) =>
+                this.rickandmortyService.getCharacter(action.id).pipe(
+                    map((result) => AppActions.getCharacterSuccess({ result })),
+                    catchError((error) => of(AppActions.getCharacterFailure({ error })))
+                )
+            )
+        )
+    );
+
     // Get Locations
     getLocations$ = createEffect(() =>
         this.actions$.pipe(

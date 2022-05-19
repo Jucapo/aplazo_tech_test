@@ -5,13 +5,15 @@ export const getCharacters = createAction('[Characters] Get Characters', props<{
 export const getCharactersSuccess = createAction('[Characters] Get Characters Success', props<{ result: any }>());
 export const getCharactersFailure = createAction('[Characters] Get Characters Failure', props<{ error: any }>());
 
-export const selectCharacter = createAction('[Characters] Get Character', props<{ id: number }>());
+// get details character
+export const getCharacter = createAction('[Characters] Get Character', props<{ id: number }>());
+export const getCharacterSuccess = createAction('[Characters] Get Character Success', props<{ result: any }>());
+export const getCharacterFailure = createAction('[Characters] Get Character Failure', props<{ error: any }>());
 
 // get locations
 export const getLocations = createAction('[Locations] Get Locations', props<{ page: number }>());
 export const getLocationsSuccess = createAction('[Locations] Get Locations Success', props<{ result: any }>());
 export const getLocationsFailure = createAction('[Locations] Get Locations Failure', props<{ error: any }>());
-
 
 // get episodes
 export const getEpisodes = createAction('[Episodes] Get Episodes', props<{ page: number }>());

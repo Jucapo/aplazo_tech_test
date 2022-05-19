@@ -1,0 +1,13 @@
+<div class="character-detail-container">
+    <div class="character-detail-header-image">
+        <img [src]="(character$ | async)?.image" alt="image-character" class="image-character" />
+    </div>
+
+    <div class="character-detail-content">
+        <span> <b>Name:</b> {{ (character$ | async)?.name }}</span>
+        <span> <b> Status: </b>{{ (character$ | async)?.status }}</span>
+        <span> <b>Specie: </b>{{ (character$ | async)?.species }}</span>
+        <span> <b>Gender: </b>{{ (character$ | async)?.gender }}</span>
+        <span> <b>Location: </b>{{ (character$ | async)?.location.name }}</span>
+    </div>
+</div>
