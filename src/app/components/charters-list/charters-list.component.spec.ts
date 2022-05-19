@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StoreModule } from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { ChartersListComponent } from './charters-list.component';
 
@@ -8,7 +11,9 @@ describe('ChartersListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartersListComponent ]
+      declarations: [ ChartersListComponent ],
+      imports: [StoreModule.forRoot({}), MatDialogModule],
+      providers: [provideMockStore({})],
     })
     .compileComponents();
   });
